@@ -1,0 +1,266 @@
+
+> clario@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 1761ms
+ ✓ Compiled /middleware in 181ms (211 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 4.4s (1944 modules)
+ GET / 200 in 4740ms
+ ✓ Compiled in 360ms (878 modules)
+ GET / 200 in 50ms
+ GET / 200 in 60ms
+ ✓ Compiled /favicon.ico in 219ms (1070 modules)
+ GET /favicon.ico 200 in 261ms
+ GET / 200 in 118ms
+ GET /favicon.ico 200 in 7ms
+ ✓ Compiled /sign-in/[[...sign-in]] in 239ms (1942 modules)
+ GET /sign-in/clerk_catchall_check_1776562317098 200 in 60ms
+ ✓ Compiled /auth/post-auth in 249ms (1965 modules)
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query INSERT INTO "public"."User" ("id","email","firstName","lastName","imageUrl","role","timezone","createdAt","updatedAt") VALUES ($1,$2,$3,$4,$5,CAST($6::text AS "public"."Role"),$7,$8,$9) ON CONFLICT ("id") DO UPDATE SET "email" = $10, "firstName" = $11, "lastName" = $12, "imageUrl" = $13, "updatedAt" = $14 WHERE ("public"."User"."id" = $15 AND 1=1) RETURNING "public"."User"."id", "public"."User"."email", "public"."User"."firstName", "public"."User"."lastName", "public"."User"."imageUrl", "public"."User"."role"::text, "public"."User"."timezone", "public"."User"."createdAt", "public"."User"."updatedAt"
+prisma:query COMMIT
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."firstName", "public"."User"."lastName", "public"."User"."imageUrl", "public"."User"."role"::text, "public"."User"."timezone", "public"."User"."createdAt", "public"."User"."updatedAt" FROM "public"."User" WHERE ("public"."User"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."LearnerProfile"."id", "public"."LearnerProfile"."userId", "public"."LearnerProfile"."goals", "public"."LearnerProfile"."onboardingCompleted", "public"."LearnerProfile"."stripeCustId" FROM "public"."LearnerProfile" WHERE "public"."LearnerProfile"."userId" IN ($1) OFFSET $2
+prisma:query SELECT "public"."TeacherProfile"."id", "public"."TeacherProfile"."userId", "public"."TeacherProfile"."username", "public"."TeacherProfile"."bio", "public"."TeacherProfile"."hourlyRate", "public"."TeacherProfile"."isAccepting", "public"."TeacherProfile"."sessionDurations", "public"."TeacherProfile"."bufferMinutes", "public"."TeacherProfile"."advanceBookingDays", "public"."TeacherProfile"."cancellationNoticeHours", "public"."TeacherProfile"."onboardingCompleted", "public"."TeacherProfile"."stripeConnectId" FROM "public"."TeacherProfile" WHERE "public"."TeacherProfile"."userId" IN ($1) OFFSET $2
+prisma:query COMMIT
+ GET /auth/post-auth?_rsc=xggf6 200 in 3911ms
+ ○ Compiling /teacher-dashboard ...
+ ✓ Compiled /teacher-dashboard in 541ms (2076 modules)
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."User"."id", "public"."User"."role"::text FROM "public"."User" WHERE ("public"."User"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query COMMIT
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."firstName", "public"."User"."lastName", "public"."User"."imageUrl", "public"."User"."role"::text, "public"."User"."timezone", "public"."User"."createdAt", "public"."User"."updatedAt" FROM "public"."User" WHERE ("public"."User"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query SELECT "public"."TeacherProfile"."id", "public"."TeacherProfile"."userId", "public"."TeacherProfile"."username", "public"."TeacherProfile"."bio", "public"."TeacherProfile"."hourlyRate", "public"."TeacherProfile"."isAccepting", "public"."TeacherProfile"."sessionDurations", "public"."TeacherProfile"."bufferMinutes", "public"."TeacherProfile"."advanceBookingDays", "public"."TeacherProfile"."cancellationNoticeHours", "public"."TeacherProfile"."onboardingCompleted", "public"."TeacherProfile"."stripeConnectId" FROM "public"."TeacherProfile" WHERE "public"."TeacherProfile"."userId" IN ($1) OFFSET $2
+prisma:query COMMIT
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Booking"."id", "public"."Booking"."teacherId", "public"."Booking"."learnerId", "public"."Booking"."startTime", "public"."Booking"."endTime", "public"."Booking"."status"::text, "public"."Booking"."notes", "public"."Booking"."createdAt", "public"."Booking"."updatedAt" FROM "public"."Booking" WHERE ("public"."Booking"."teacherId" = $1 AND "public"."Booking"."startTime" >= $2 AND "public"."Booking"."startTime" < $3) ORDER BY "public"."Booking"."startTime" ASC OFFSET $4
+prisma:query SELECT "public"."LearnerProfile"."id", "public"."LearnerProfile"."userId", "public"."LearnerProfile"."goals", "public"."LearnerProfile"."onboardingCompleted", "public"."LearnerProfile"."stripeCustId" FROM "public"."LearnerProfile" WHERE "public"."LearnerProfile"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."User"."id", "public"."User"."firstName", "public"."User"."lastName", "public"."User"."imageUrl" FROM "public"."User" WHERE "public"."User"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."TeacherProfile"."id", "public"."TeacherProfile"."userId", "public"."TeacherProfile"."username", "public"."TeacherProfile"."bio", "public"."TeacherProfile"."hourlyRate", "public"."TeacherProfile"."isAccepting", "public"."TeacherProfile"."sessionDurations", "public"."TeacherProfile"."bufferMinutes", "public"."TeacherProfile"."advanceBookingDays", "public"."TeacherProfile"."cancellationNoticeHours", "public"."TeacherProfile"."onboardingCompleted", "public"."TeacherProfile"."stripeConnectId" FROM "public"."TeacherProfile" WHERE "public"."TeacherProfile"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."_TeacherTopics"."A", "public"."_TeacherTopics"."B" FROM "public"."_TeacherTopics" WHERE "public"."_TeacherTopics"."A" IN ($1)
+prisma:query SELECT "public"."Session"."id", "public"."Session"."roomIdentifier", "public"."Session"."bookingId" FROM "public"."Session" WHERE "public"."Session"."bookingId" IN ($1) OFFSET $2
+prisma:query COMMIT
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Payment"."id", "public"."Payment"."amount", "public"."Payment"."status"::text, "public"."Payment"."createdAt" FROM "public"."Payment" LEFT JOIN "public"."Booking" AS "j1" ON ("j1"."id") = ("public"."Payment"."bookingId") WHERE ("j1"."teacherId" = $1 AND "j1"."startTime" >= $2 AND "j1"."startTime" < $3 AND ("j1"."id" IS NOT NULL)) OFFSET $4
+prisma:query COMMIT
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Payment"."id", "public"."Payment"."amount" FROM "public"."Payment" LEFT JOIN "public"."Booking" AS "j1" ON ("j1"."id") = ("public"."Payment"."bookingId") WHERE ("public"."Payment"."status" = CAST($1::text AS "public"."PaymentStatus") AND ("j1"."teacherId" = $2 AND ("j1"."id" IS NOT NULL))) OFFSET $3
+prisma:query COMMIT
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT COUNT(*) FROM (SELECT "public"."Booking"."id" FROM "public"."Booking" WHERE ("public"."Booking"."teacherId" = $1 AND "public"."Booking"."startTime" >= $2 AND "public"."Booking"."startTime" < $3) OFFSET $4) AS "sub"
+prisma:query COMMIT
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Feedback"."id", "public"."Feedback"."bookingId", "public"."Feedback"."teacherId", "public"."Feedback"."learnerId", "public"."Feedback"."rating", "public"."Feedback"."comments", "public"."Feedback"."createdAt" FROM "public"."Feedback" WHERE "public"."Feedback"."teacherId" = $1 ORDER BY "public"."Feedback"."createdAt" DESC LIMIT $2 OFFSET $3
+prisma:query COMMIT
+ GET /teacher-dashboard?_rsc=1csdc 200 in 7337ms
+ ✓ Compiled /api/trpc/[trpc] in 264ms (1197 modules)
+ ✓ Compiled (1347 modules)
+ GET /api/realtime-config 200 in 720ms
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Notification"."id", "public"."Notification"."userId", "public"."Notification"."type", "public"."Notification"."title", "public"."Notification"."message", "public"."Notification"."isRead", "public"."Notification"."createdAt" FROM "public"."Notification" WHERE "public"."Notification"."userId" = $1 ORDER BY "public"."Notification"."createdAt" DESC LIMIT $2 OFFSET $3
+prisma:query COMMIT
+ GET /api/trpc/notifications.getAll?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%2C%22v%22%3A1%7D%7D%7D 200 in 2327ms
+ ✓ Compiled /session/[sessionId] in 443ms (2352 modules)
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Session"."id", "public"."Session"."bookingId", "public"."Session"."status"::text, "public"."Session"."startedAt", "public"."Session"."endedAt", "public"."Session"."roomIdentifier", "public"."Session"."isRecorded" FROM "public"."Session" WHERE ("public"."Session"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query COMMIT
+ GET /session/31db8060-6b19-4091-b01c-e923cc5c2f73?_rsc=an5ur 200 in 1112ms
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Session"."id", "public"."Session"."bookingId", "public"."Session"."status"::text, "public"."Session"."startedAt", "public"."Session"."endedAt", "public"."Session"."roomIdentifier", "public"."Session"."isRecorded" FROM "public"."Session" WHERE ("public"."Session"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query COMMIT
+ GET /session/31db8060-6b19-4091-b01c-e923cc5c2f73 200 in 1199ms
+ GET /favicon.ico 200 in 11ms
+prisma:query SELECT 1
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Session"."id", "public"."Session"."bookingId", "public"."Session"."status"::text, "public"."Session"."startedAt", "public"."Session"."endedAt", "public"."Session"."roomIdentifier", "public"."Session"."isRecorded" FROM "public"."Session" WHERE ("public"."Session"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+prisma:query COMMIT
+ GET /session/31db8060-6b19-4091-b01c-e923cc5c2f73 200 in 1587ms
+ GET /favicon.ico 200 in 8ms
+ ✓ Compiled in 746ms (2156 modules)
+prisma:query SELECT 1
+prisma:error 
+Invalid `prisma.session.findFirst()` invocation:
+
+{
+  where: {
+    OR: [
+      {
+        id: "31db8060-6b19-4091-b01c-e923cc5c2f73"
+      },
+      {
+        roomIdentifier: "31db8060-6b19-4091-b01c-e923cc5c2f73"
+      }
+    ]
+  },
+  include: {
+    include: {
+    ~~~~~~~
+      booking: {
+        include: {
+          teacher: {
+            include: {
+              user: true
+            }
+          },
+          learner: {
+            include: {
+              user: true
+            }
+          }
+        }
+      },
+      messages: {
+        orderBy: {
+          createdAt: "asc"
+        },
+        take: 50
+      }
+    },
+?   booking?: true,
+?   summary?: true,
+?   messages?: true
+  }
+}
+
+Unknown field `include` for include statement on model `Session`. Available options are marked with ?.
+ GET /session/31db8060-6b19-4091-b01c-e923cc5c2f73?_rsc=1w38m 200 in 1490ms
+ ✓ Compiled in 376ms (2156 modules)
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Session"."id", "public"."Session"."bookingId", "public"."Session"."status"::text, "public"."Session"."startedAt", "public"."Session"."endedAt", "public"."Session"."roomIdentifier", "public"."Session"."isRecorded" FROM "public"."Session" WHERE ("public"."Session"."id" = $1 OR "public"."Session"."roomIdentifier" = $2) LIMIT $3 OFFSET $4
+prisma:query SELECT "public"."Booking"."id", "public"."Booking"."teacherId", "public"."Booking"."learnerId", "public"."Booking"."startTime", "public"."Booking"."endTime", "public"."Booking"."status"::text, "public"."Booking"."notes", "public"."Booking"."createdAt", "public"."Booking"."updatedAt" FROM "public"."Booking" WHERE "public"."Booking"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."TeacherProfile"."id", "public"."TeacherProfile"."userId", "public"."TeacherProfile"."username", "public"."TeacherProfile"."bio", "public"."TeacherProfile"."hourlyRate", "public"."TeacherProfile"."isAccepting", "public"."TeacherProfile"."sessionDurations", "public"."TeacherProfile"."bufferMinutes", "public"."TeacherProfile"."advanceBookingDays", "public"."TeacherProfile"."cancellationNoticeHours", "public"."TeacherProfile"."onboardingCompleted", "public"."TeacherProfile"."stripeConnectId" FROM "public"."TeacherProfile" WHERE "public"."TeacherProfile"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."firstName", "public"."User"."lastName", "public"."User"."imageUrl", "public"."User"."role"::text, "public"."User"."timezone", "public"."User"."createdAt", "public"."User"."updatedAt" FROM "public"."User" WHERE "public"."User"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."LearnerProfile"."id", "public"."LearnerProfile"."userId", "public"."LearnerProfile"."goals", "public"."LearnerProfile"."onboardingCompleted", "public"."LearnerProfile"."stripeCustId" FROM "public"."LearnerProfile" WHERE "public"."LearnerProfile"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."firstName", "public"."User"."lastName", "public"."User"."imageUrl", "public"."User"."role"::text, "public"."User"."timezone", "public"."User"."createdAt", "public"."User"."updatedAt" FROM "public"."User" WHERE "public"."User"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."Message"."id", "public"."Message"."sessionId", "public"."Message"."senderId", "public"."Message"."senderName", "public"."Message"."content", "public"."Message"."createdAt" FROM "public"."Message" WHERE "public"."Message"."sessionId" IN ($1) ORDER BY "public"."Message"."createdAt" ASC LIMIT $2 OFFSET $3
+prisma:query COMMIT
+ GET /session/31db8060-6b19-4091-b01c-e923cc5c2f73 200 in 3585ms
+ ✓ Compiled /favicon.ico in 335ms (1230 modules)
+ GET /favicon.ico 200 in 387ms
+ ✓ Compiled in 435ms (2187 modules)
+prisma:query SELECT 1
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Session"."id", "public"."Session"."bookingId", "public"."Session"."status"::text, "public"."Session"."startedAt", "public"."Session"."endedAt", "public"."Session"."roomIdentifier", "public"."Session"."isRecorded" FROM "public"."Session" WHERE ("public"."Session"."id" = $1 OR "public"."Session"."roomIdentifier" = $2) LIMIT $3 OFFSET $4
+prisma:query SELECT "public"."Booking"."id", "public"."Booking"."teacherId", "public"."Booking"."learnerId", "public"."Booking"."startTime", "public"."Booking"."endTime", "public"."Booking"."status"::text, "public"."Booking"."notes", "public"."Booking"."createdAt", "public"."Booking"."updatedAt" FROM "public"."Booking" WHERE "public"."Booking"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."TeacherProfile"."id", "public"."TeacherProfile"."userId", "public"."TeacherProfile"."username", "public"."TeacherProfile"."bio", "public"."TeacherProfile"."hourlyRate", "public"."TeacherProfile"."isAccepting", "public"."TeacherProfile"."sessionDurations", "public"."TeacherProfile"."bufferMinutes", "public"."TeacherProfile"."advanceBookingDays", "public"."TeacherProfile"."cancellationNoticeHours", "public"."TeacherProfile"."onboardingCompleted", "public"."TeacherProfile"."stripeConnectId" FROM "public"."TeacherProfile" WHERE "public"."TeacherProfile"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."firstName", "public"."User"."lastName", "public"."User"."imageUrl", "public"."User"."role"::text, "public"."User"."timezone", "public"."User"."createdAt", "public"."User"."updatedAt" FROM "public"."User" WHERE "public"."User"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."LearnerProfile"."id", "public"."LearnerProfile"."userId", "public"."LearnerProfile"."goals", "public"."LearnerProfile"."onboardingCompleted", "public"."LearnerProfile"."stripeCustId" FROM "public"."LearnerProfile" WHERE "public"."LearnerProfile"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."firstName", "public"."User"."lastName", "public"."User"."imageUrl", "public"."User"."role"::text, "public"."User"."timezone", "public"."User"."createdAt", "public"."User"."updatedAt" FROM "public"."User" WHERE "public"."User"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."Message"."id", "public"."Message"."sessionId", "public"."Message"."senderId", "public"."Message"."senderName", "public"."Message"."content", "public"."Message"."createdAt" FROM "public"."Message" WHERE "public"."Message"."sessionId" IN ($1) ORDER BY "public"."Message"."createdAt" ASC LIMIT $2 OFFSET $3
+prisma:query COMMIT
+ GET /session/31db8060-6b19-4091-b01c-e923cc5c2f73?_rsc=1w38m 200 in 3881ms
+ GET /favicon.ico 500 in 16ms
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Session"."id", "public"."Session"."bookingId", "public"."Session"."status"::text, "public"."Session"."startedAt", "public"."Session"."endedAt", "public"."Session"."roomIdentifier", "public"."Session"."isRecorded" FROM "public"."Session" WHERE ("public"."Session"."id" = $1 OR "public"."Session"."roomIdentifier" = $2) LIMIT $3 OFFSET $4
+prisma:query SELECT "public"."Booking"."id", "public"."Booking"."teacherId", "public"."Booking"."learnerId", "public"."Booking"."startTime", "public"."Booking"."endTime", "public"."Booking"."status"::text, "public"."Booking"."notes", "public"."Booking"."createdAt", "public"."Booking"."updatedAt" FROM "public"."Booking" WHERE "public"."Booking"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."TeacherProfile"."id", "public"."TeacherProfile"."userId", "public"."TeacherProfile"."username", "public"."TeacherProfile"."bio", "public"."TeacherProfile"."hourlyRate", "public"."TeacherProfile"."isAccepting", "public"."TeacherProfile"."sessionDurations", "public"."TeacherProfile"."bufferMinutes", "public"."TeacherProfile"."advanceBookingDays", "public"."TeacherProfile"."cancellationNoticeHours", "public"."TeacherProfile"."onboardingCompleted", "public"."TeacherProfile"."stripeConnectId" FROM "public"."TeacherProfile" WHERE "public"."TeacherProfile"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."firstName", "public"."User"."lastName", "public"."User"."imageUrl", "public"."User"."role"::text, "public"."User"."timezone", "public"."User"."createdAt", "public"."User"."updatedAt" FROM "public"."User" WHERE "public"."User"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."LearnerProfile"."id", "public"."LearnerProfile"."userId", "public"."LearnerProfile"."goals", "public"."LearnerProfile"."onboardingCompleted", "public"."LearnerProfile"."stripeCustId" FROM "public"."LearnerProfile" WHERE "public"."LearnerProfile"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."firstName", "public"."User"."lastName", "public"."User"."imageUrl", "public"."User"."role"::text, "public"."User"."timezone", "public"."User"."createdAt", "public"."User"."updatedAt" FROM "public"."User" WHERE "public"."User"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."Message"."id", "public"."Message"."sessionId", "public"."Message"."senderId", "public"."Message"."senderName", "public"."Message"."content", "public"."Message"."createdAt" FROM "public"."Message" WHERE "public"."Message"."sessionId" IN ($1) ORDER BY "public"."Message"."createdAt" ASC LIMIT $2 OFFSET $3
+prisma:query COMMIT
+ GET /session/31db8060-6b19-4091-b01c-e923cc5c2f73 200 in 4632ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 746ms (2176 modules)
+ GET /_next/static/chunks/webpack.js?v=1776562662658 404 in 871ms
+ GET /_next/static/css/app/layout.css?v=1776562662658 404 in 873ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 866ms
+ GET /_next/static/chunks/main-app.js?v=1776562662658 404 in 868ms
+ GET /_next/static/chunks/app/layout.js 404 in 868ms
+ GET /_next/static/chunks/app/session/%5BsessionId%5D/page.js 404 in 867ms
+ GET /favicon.ico 500 in 14ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 787ms (2401 modules)
+ GET /session/31db8060-6b19-4091-b01c-e923cc5c2f73 500 in 938ms
+ GET /favicon.ico 500 in 9ms
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Session"."id", "public"."Session"."bookingId", "public"."Session"."status"::text, "public"."Session"."startedAt", "public"."Session"."endedAt", "public"."Session"."roomIdentifier", "public"."Session"."isRecorded" FROM "public"."Session" WHERE ("public"."Session"."id" = $1 OR "public"."Session"."roomIdentifier" = $2) LIMIT $3 OFFSET $4
+prisma:query SELECT "public"."Booking"."id", "public"."Booking"."teacherId", "public"."Booking"."learnerId", "public"."Booking"."startTime", "public"."Booking"."endTime", "public"."Booking"."status"::text, "public"."Booking"."notes", "public"."Booking"."createdAt", "public"."Booking"."updatedAt" FROM "public"."Booking" WHERE "public"."Booking"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."TeacherProfile"."id", "public"."TeacherProfile"."userId", "public"."TeacherProfile"."username", "public"."TeacherProfile"."bio", "public"."TeacherProfile"."hourlyRate", "public"."TeacherProfile"."isAccepting", "public"."TeacherProfile"."sessionDurations", "public"."TeacherProfile"."bufferMinutes", "public"."TeacherProfile"."advanceBookingDays", "public"."TeacherProfile"."cancellationNoticeHours", "public"."TeacherProfile"."onboardingCompleted", "public"."TeacherProfile"."stripeConnectId" FROM "public"."TeacherProfile" WHERE "public"."TeacherProfile"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."firstName", "public"."User"."lastName", "public"."User"."imageUrl", "public"."User"."role"::text, "public"."User"."timezone", "public"."User"."createdAt", "public"."User"."updatedAt" FROM "public"."User" WHERE "public"."User"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."LearnerProfile"."id", "public"."LearnerProfile"."userId", "public"."LearnerProfile"."goals", "public"."LearnerProfile"."onboardingCompleted", "public"."LearnerProfile"."stripeCustId" FROM "public"."LearnerProfile" WHERE "public"."LearnerProfile"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."firstName", "public"."User"."lastName", "public"."User"."imageUrl", "public"."User"."role"::text, "public"."User"."timezone", "public"."User"."createdAt", "public"."User"."updatedAt" FROM "public"."User" WHERE "public"."User"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."Message"."id", "public"."Message"."sessionId", "public"."Message"."senderId", "public"."Message"."senderName", "public"."Message"."content", "public"."Message"."createdAt" FROM "public"."Message" WHERE "public"."Message"."sessionId" IN ($1) ORDER BY "public"."Message"."createdAt" ASC LIMIT $2 OFFSET $3
+prisma:query COMMIT
+ GET /session/31db8060-6b19-4091-b01c-e923cc5c2f73 200 in 3242ms
+ GET /_next/static/chunks/main-app.js?v=1776562675056 404 in 33ms
+ GET /_next/static/css/app/layout.css?v=1776562675056 404 in 36ms
+ GET /_next/static/chunks/app/layout.js 404 in 35ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 35ms
+ GET /_next/static/chunks/app/session/%5BsessionId%5D/page.js 404 in 35ms
+ GET /favicon.ico 500 in 8ms
+ GET /session/31db8060-6b19-4091-b01c-e923cc5c2f73 500 in 184ms
+ GET /favicon.ico 500 in 9ms
+ GET /session/31db8060-6b19-4091-b01c-e923cc5c2f73 500 in 189ms
+ GET /favicon.ico 500 in 9ms
+ GET /favicon.ico 500 in 11ms
+prisma:query SELECT 1
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+ GET /teacher-dashboard 200 in 577ms
+ GET /favicon.ico 500 in 12ms
+ GET /sign-in 200 in 103ms
+ GET /_next/static/chunks/main-app.js?v=1776562699763 404 in 24ms
+ GET /_next/static/css/app/layout.css?v=1776562699763 404 in 26ms
+prisma:query SELECT "public"."User"."id", "public"."User"."role"::text FROM "public"."User" WHERE ("public"."User"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+ GET /_next/static/chunks/app-pages-internals.js 404 in 30ms
+ GET /_next/static/chunks/app/layout.js 404 in 52ms
+ GET /_next/static/chunks/app/(auth)/sign-in/%5B%5B...sign-in%5D%5D/page.js 404 in 53ms
+ GET /favicon.ico 500 in 7ms
+prisma:query COMMIT
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."User"."id", "public"."User"."email", "public"."User"."firstName", "public"."User"."lastName", "public"."User"."imageUrl", "public"."User"."role"::text, "public"."User"."timezone", "public"."User"."createdAt", "public"."User"."updatedAt" FROM "public"."User" WHERE ("public"."User"."id" = $1 AND 1=1) LIMIT $2 OFFSET $3
+ GET /favicon.ico 500 in 7ms
+prisma:query SELECT "public"."TeacherProfile"."id", "public"."TeacherProfile"."userId", "public"."TeacherProfile"."username", "public"."TeacherProfile"."bio", "public"."TeacherProfile"."hourlyRate", "public"."TeacherProfile"."isAccepting", "public"."TeacherProfile"."sessionDurations", "public"."TeacherProfile"."bufferMinutes", "public"."TeacherProfile"."advanceBookingDays", "public"."TeacherProfile"."cancellationNoticeHours", "public"."TeacherProfile"."onboardingCompleted", "public"."TeacherProfile"."stripeConnectId" FROM "public"."TeacherProfile" WHERE "public"."TeacherProfile"."userId" IN ($1) OFFSET $2
+prisma:query COMMIT
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Booking"."id", "public"."Booking"."teacherId", "public"."Booking"."learnerId", "public"."Booking"."startTime", "public"."Booking"."endTime", "public"."Booking"."status"::text, "public"."Booking"."notes", "public"."Booking"."createdAt", "public"."Booking"."updatedAt" FROM "public"."Booking" WHERE ("public"."Booking"."teacherId" = $1 AND "public"."Booking"."startTime" >= $2 AND "public"."Booking"."startTime" < $3) ORDER BY "public"."Booking"."startTime" ASC OFFSET $4
+prisma:query SELECT "public"."LearnerProfile"."id", "public"."LearnerProfile"."userId", "public"."LearnerProfile"."goals", "public"."LearnerProfile"."onboardingCompleted", "public"."LearnerProfile"."stripeCustId" FROM "public"."LearnerProfile" WHERE "public"."LearnerProfile"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."User"."id", "public"."User"."firstName", "public"."User"."lastName", "public"."User"."imageUrl" FROM "public"."User" WHERE "public"."User"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."TeacherProfile"."id", "public"."TeacherProfile"."userId", "public"."TeacherProfile"."username", "public"."TeacherProfile"."bio", "public"."TeacherProfile"."hourlyRate", "public"."TeacherProfile"."isAccepting", "public"."TeacherProfile"."sessionDurations", "public"."TeacherProfile"."bufferMinutes", "public"."TeacherProfile"."advanceBookingDays", "public"."TeacherProfile"."cancellationNoticeHours", "public"."TeacherProfile"."onboardingCompleted", "public"."TeacherProfile"."stripeConnectId" FROM "public"."TeacherProfile" WHERE "public"."TeacherProfile"."id" IN ($1) OFFSET $2
+prisma:query SELECT "public"."_TeacherTopics"."A", "public"."_TeacherTopics"."B" FROM "public"."_TeacherTopics" WHERE "public"."_TeacherTopics"."A" IN ($1)
+prisma:query SELECT "public"."Session"."id", "public"."Session"."roomIdentifier", "public"."Session"."bookingId" FROM "public"."Session" WHERE "public"."Session"."bookingId" IN ($1) OFFSET $2
+prisma:query COMMIT
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Payment"."id", "public"."Payment"."amount", "public"."Payment"."status"::text, "public"."Payment"."createdAt" FROM "public"."Payment" LEFT JOIN "public"."Booking" AS "j1" ON ("j1"."id") = ("public"."Payment"."bookingId") WHERE ("j1"."teacherId" = $1 AND "j1"."startTime" >= $2 AND "j1"."startTime" < $3 AND ("j1"."id" IS NOT NULL)) OFFSET $4
+prisma:query COMMIT
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Payment"."id", "public"."Payment"."amount" FROM "public"."Payment" LEFT JOIN "public"."Booking" AS "j1" ON ("j1"."id") = ("public"."Payment"."bookingId") WHERE ("public"."Payment"."status" = CAST($1::text AS "public"."PaymentStatus") AND ("j1"."teacherId" = $2 AND ("j1"."id" IS NOT NULL))) OFFSET $3
+prisma:query COMMIT
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT COUNT(*) FROM (SELECT "public"."Booking"."id" FROM "public"."Booking" WHERE ("public"."Booking"."teacherId" = $1 AND "public"."Booking"."startTime" >= $2 AND "public"."Booking"."startTime" < $3) OFFSET $4) AS "sub"
+prisma:query COMMIT
+prisma:query BEGIN
+prisma:query DEALLOCATE ALL
+prisma:query SELECT "public"."Feedback"."id", "public"."Feedback"."bookingId", "public"."Feedback"."teacherId", "public"."Feedback"."learnerId", "public"."Feedback"."rating", "public"."Feedback"."comments", "public"."Feedback"."createdAt" FROM "public"."Feedback" WHERE "public"."Feedback"."teacherId" = $1 ORDER BY "public"."Feedback"."createdAt" DESC LIMIT $2 OFFSET $3
+prisma:query COMMIT

@@ -1,0 +1,941 @@
+Warning: Only plain objects can be passed to Client Components from Server Components. Decimal objects are not supported.
+  {id: ..., userId: ..., username: ..., bio: ..., hourlyRate: Decimal, isAccepting: ..., sessionDurations: ..., bufferMinutes: ..., advanceBookingDays: ..., cancellationNoticeHours: ..., onboardingCompleted: ..., stripeConnectId: ..., topics: ...}
+                                                              ^^^^^^^
+ ⨯ PrismaClientValidationError: 
+Invalid `prisma.session.findFirst()` invocation:
+
+{
+  where: {
+    OR: [
+      {
+        id: "31db8060-6b19-4091-b01c-e923cc5c2f73"
+      },
+      {
+        roomIdentifier: "31db8060-6b19-4091-b01c-e923cc5c2f73"
+      }
+    ]
+  },
+  include: {
+    include: {
+    ~~~~~~~
+      booking: {
+        include: {
+          teacher: {
+            include: {
+              user: true
+            }
+          },
+          learner: {
+            include: {
+              user: true
+            }
+          }
+        }
+      },
+      messages: {
+        orderBy: {
+          createdAt: "asc"
+        },
+        take: 50
+      }
+    },
+?   booking?: true,
+?   summary?: true,
+?   messages?: true
+  }
+}
+
+Unknown field `include` for include statement on model `Session`. Available options are marked with ?.
+    at async SessionPage (./app/session/[sessionId]/page.tsx:23:21)
+digest: "1857577165"
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\session\[sessionId]\page.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\build\utils.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:203:28)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:167:22)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16110
+    at Object.<anonymous> (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16153)
+    at Module._compile (node:internal/modules/cjs/loader:1812:14)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module._load (node:internal/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at requirePage (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\app\\session\\[sessionId]\\page.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/favicon.ico'
+}
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\_not-found\page.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\build\utils.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:203:28)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:167:22)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16110
+    at Object.<anonymous> (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16153)
+    at Module._compile (node:internal/modules/cjs/loader:1812:14)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module._load (node:internal/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at requirePage (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/favicon.ico'
+}
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\_not-found\page.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\build\utils.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:203:28)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:167:22)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\session\[sessionId]\page.js:1:17426
+    at Object.<anonymous> (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\session\[sessionId]\page.js:1:17492)
+    at Module._compile (node:internal/modules/cjs/loader:1812:14)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module._load (node:internal/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at requirePage (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\app\\_not-found\\page.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/session/31db8060-6b19-4091-b01c-e923cc5c2f73'
+}
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\pages\_document.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\build\utils.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:203:28)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:167:22)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16110
+    at Object.<anonymous> (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16153)
+    at Module._compile (node:internal/modules/cjs/loader:1812:14)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module._load (node:internal/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at requirePage (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\pages\\_document.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/favicon.ico'
+}
+ ⨯ Failed to generate static paths for /session/[sessionId]:
+Error: Cannot find module './vendor-chunks/@clerk.js'
+Require stack:
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\session\[sessionId]\page.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\build\utils.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\static-paths-worker.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\compiled\jest-worker\processChild.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:203:28) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\app\\session\\[sessionId]\\page.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\static-paths-worker.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\compiled\\jest-worker\\processChild.js'
+  ]
+}
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\pages\_document.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\build\utils.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:203:28)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:167:22)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16110
+    at Object.<anonymous> (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16153)
+    at Module._compile (node:internal/modules/cjs/loader:1812:14)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module._load (node:internal/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at requirePage (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\pages\\_document.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/favicon.ico'
+}
+ ⨯ Error: Cannot find module './vendor-chunks/@clerk.js'
+Require stack:
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\session\[sessionId]\page.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\build\utils.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\static-paths-worker.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\compiled\jest-worker\processChild.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:203:28) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\app\\session\\[sessionId]\\page.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\static-paths-worker.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\compiled\\jest-worker\\processChild.js'
+  ],
+  page: '/session/31db8060-6b19-4091-b01c-e923cc5c2f73'
+}
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\pages\_document.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\build\utils.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:203:28)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:167:22)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16110
+    at Object.<anonymous> (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16153)
+    at Module._compile (node:internal/modules/cjs/loader:1812:14)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module._load (node:internal/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at requirePage (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\pages\\_document.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/favicon.ico'
+}
+ ⨯ Error: Cannot find module './vendor-chunks/@clerk.js'
+Require stack:
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\session\[sessionId]\page.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\build\utils.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\static-paths-worker.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\compiled\jest-worker\processChild.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:203:28) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\app\\session\\[sessionId]\\page.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\static-paths-worker.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\compiled\\jest-worker\\processChild.js'
+  ],
+  page: '/session/31db8060-6b19-4091-b01c-e923cc5c2f73'
+}
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\pages\_document.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\build\utils.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:203:28)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:167:22)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16110
+    at Object.<anonymous> (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16153)
+    at Module._compile (node:internal/modules/cjs/loader:1812:14)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module._load (node:internal/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at requirePage (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\pages\\_document.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/favicon.ico'
+}
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\pages\_document.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\build\utils.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:203:28)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:167:22)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16110
+    at Object.<anonymous> (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16153)
+    at Module._compile (node:internal/modules/cjs/loader:1812:14)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module._load (node:internal/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at requirePage (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\pages\\_document.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/favicon.ico'
+}
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\pages\_document.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\build\utils.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:203:28)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:167:22)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16110
+    at Object.<anonymous> (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16153)
+    at Module._compile (node:internal/modules/cjs/loader:1812:14)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module._load (node:internal/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at requirePage (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\pages\\_document.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/favicon.ico'
+}
+ ⨯ Failed to generate static paths for /sign-in/[[...sign-in]]:
+Error: Cannot find module './vendor-chunks/@clerk.js'
+Require stack:
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\(auth)\sign-in\[[...sign-in]]\page.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\build\utils.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\static-paths-worker.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\compiled\jest-worker\processChild.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:203:28) {
+  type: 'Error',
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\app\\(auth)\\sign-in\\[[...sign-in]]\\page.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\static-paths-worker.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\compiled\\jest-worker\\processChild.js'
+  ]
+}
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\pages\_document.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\build\utils.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:203:28)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:167:22)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16110
+    at Object.<anonymous> (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16153)
+    at Module._compile (node:internal/modules/cjs/loader:1812:14)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module._load (node:internal/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at requirePage (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\pages\\_document.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/favicon.ico'
+}
+ ⨯ Error: Cannot find module './8948.js'
+Require stack:
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\pages\_document.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\build\utils.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-middleware.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\hot-reloader-webpack.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1456:15)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:55:36
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1066:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1071:22)
+    at Module._load (node:internal/modules/cjs/loader:1242:25)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at __webpack_require__.f.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:203:28)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:116:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:115:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\webpack-runtime.js:167:22)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16110
+    at Object.<anonymous> (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\.next\server\app\favicon.ico\route.js:12:16153)
+    at Module._compile (node:internal/modules/cjs/loader:1812:14)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module._load (node:internal/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1556:12)
+    at mod.require (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at requirePage (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\require.js:109:84)
+    at C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:84
+    at async loadComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\load-components.js:103:26)
+    at async DevServer.findPageComponentsImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\webpack-runtime.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\.next\\server\\pages\\_document.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\require.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\load-components.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\build\\utils.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-middleware.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\dev\\hot-reloader-webpack.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'C:\\Users\\viraj\\OneDrive\\Desktop\\clario\\Clario\\Clario\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ],
+  page: '/favicon.ico'
+}
+Warning: Only plain objects can be passed to Client Components from Server Components. Decimal objects are not supported.
+  {id: ..., userId: ..., username: ..., bio: ..., hourlyRate: Decimal, isAccepting: ..., sessionDurations: ..., bufferMinutes: ..., advanceBookingDays: ..., cancellationNoticeHours: ..., onboardingCompleted: ..., stripeConnectId: ..., topics: ...}
+                                                              ^^^^^^^

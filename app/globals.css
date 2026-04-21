@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --warm-white: #F9F8F6;
+  --ink: #1A1814;
+  --ink-muted: #6B6560;
+  --purple-accent: #6B5CE7;
+  --fog-white: rgba(249, 248, 246, 0.85);
+
+  /* Premium Dark Session Variables */
+  --bg-primary: #0d0d0d;
+  --bg-surface: #161616;
+  --bg-elevated: #1f1f1f;
+  --bg-sidebar: #ffffff;
+  --accent-green: #4ade80;
+  --accent-red: #f87171;
+  --accent-orange: #fb923c;
+  --text-primary: #f5f5f5;
+  --text-muted: #6b7280;
+  --text-sidebar: #111111;
+  --border-subtle: #2a2a2a;
+  --pill-bg: rgba(255,255,255,0.08);
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes fog-drift-x {
+  0%, 100% { transform: translateX(-3%); }
+  50% { transform: translateX(3%); }
+}
+
+@keyframes grain-shift {
+  0% { transform: translate3d(-2%, -2%, 0); }
+  50% { transform: translate3d(2%, 1%, 0); }
+  100% { transform: translate3d(-1%, 2%, 0); }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+  }
+}
+
+/* Session timer pulse */
+@keyframes timer-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* =========================================================
+   PREMIUM DARK SESSION UI OVERRIDES
+   ========================================================= */
+
+/* Use font everywhere in session */
+body:has(video) {
+  font-family: 'Inter', sans-serif !important;
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+body:has(video) h1, 
+body:has(video) h2, 
+body:has(video) h3, 
+body:has(video) h4, 
+body:has(video) h5, 
+body:has(video) h6, 
+body:has(video) .font-display, 
+body:has(video) .font-medium, 
+body:has(video) .font-semibold, 
+body:has(video) .font-bold {
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* 1. Main Background and Fade-In */
+.flex.h-screen.bg-white:has(video) {
+  background-color: var(--bg-primary) !important;
+  animation: sessionFadeIn 300ms ease-in forwards;
+}
+
+@keyframes sessionFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 2. Main Video Area */
+.flex.h-screen:has(video) > .relative.flex-1.bg-gray-900 {
+  flex: 0 0 calc(55% - 12px) !important;
+  margin: 12px !important;
+  background-color: var(--bg-surface) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6) !important;
+  border: 1px solid var(--border-subtle) !important;
+  overflow: hidden !important;
+}
+
+/* 3. Right Sidebar */
+.flex.h-screen:has(video) > .w-72.border-l {
+  flex: 1 !important;
+  width: auto !important;
+  background-color: var(--bg-sidebar) !important;
+  border-left: 1px solid var(--border-subtle) !important;
+  color: var(--text-sidebar) !important;
+  margin: 0 !important;
+}
+
+/* 4. Floating Secondary Camera (Local Video) */
+.flex.h-screen:has(video) .w-72 .relative.w-full:has(#localVideoRef, video.aspect-video) {
+  position: fixed !important;
+  top: 36px !important;
+  /* (55% video width from left margin 12px) - 240px float width - 24px internal padding -> perfectly floating right-aligned */
+  left: calc(55% - 240px - 24px) !important; 
+  width: 240px !important;
+  z-index: 50 !important;
+  background-color: var(--bg-surface) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--border-subtle) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+}
+.flex.h-screen:has(video) .w-72 .relative.w-full .absolute.inset-0 {
+  border-radius: 12px !important;
+}
+
+/* "YOUR SETUP" pill on local video */
+.flex.h-screen:has(video) .w-72 .relative.w-full:has(video.aspect-video)::before {
+  content: "YOUR SETUP";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--pill-bg);
+  backdrop-filter: blur(8px);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255,255,255,0.1);
+  z-index: 10;
+  pointer-events: none;
+}
+.flex.h-screen:has(video) .w-72 .relative.w-full:has(video.aspect-video)::after {
+  content: "";
+  position: absolute;
+  top: 19px;
+  left: 92px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-green);
+  z-index: 11;
+  pointer-events: none;
+}
+
+/* 5. Bottom action bar */
+.flex.h-screen:has(video) > .relative.flex-1 > .absolute.bottom-4 {
+  bottom: 24px !important;
+  background: var(--pill-bg) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 9999px !important;
+  padding: 12px 24px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+}
+
+/* Room Status Text Structure */
+.flex.h-screen:has(video) .min-w-0 {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.flex.h-screen:has(video) .min-w-0::before {
+  content: "ROOM STATUS";
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  color: var(--text-muted) !important;
+  letter-spacing: 0.08em !important;
+  margin-bottom: 4px !important;
+}
+.flex.h-screen:has(video) .min-w-0 .font-medium {
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  color: var(--text-primary) !important;
+}
+.flex.h-screen:has(video) .min-w-0 .text-xs {
+  color: var(--text-muted) !important;
+}
+
+/* Video area buttons (Outline ones like Copy Link) */
+.flex.h-screen:has(video) button.border-white\/20 {
+  border: 1px solid #333 !important;
+  background-color: transparent !important;
+  color: var(--text-primary) !important;
+  padding: 8px 20px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 500 !important;
+  border-radius: 9999px !important;
+  transition: all 150ms ease !important;
+}
+.flex.h-screen:has(video) button.border-white\/20:hover {
+  transform: scale(1.02) !important;
+  background: rgba(255,255,255,0.05) !important;
+}
+
+/* 6. Tools Cards in Sidebar */
+.flex.h-screen:has(video) .w-72 .flex.w-full.gap-2 {
+  gap: 16px !important;
+  margin-block: 8px 24px !important;
+  padding-inline: 16px !important;
+}
+.flex.h-screen:has(video) .w-72 button.h-10, 
+.flex.h-screen:has(video) .w-72 button.rounded-lg.border-gray-300 {
+  background: white !important;
+  border: 1px solid #eaeaea !important;
+  border-radius: 16px !important;
+  padding: 16px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02) !important;
+  transition: transform 150ms ease, box-shadow 150ms ease !important;
+  font-family: 'Inter', sans-serif !important;
+  color: var(--text-sidebar) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+}
+.flex.h-screen:has(video) .w-72 button.rounded-lg.border-gray-300:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important;
+}
+
+/* Danger Button */
+.flex.h-screen:has(video) .w-72 button.bg-red-500 {
+  background-color: var(--accent-red) !important;
+  border-radius: 9999px !important;
+  color: white !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 14px 24px !important;
+  transition: transform 150ms ease !important;
+  border: none !important;
+  margin-inline: 16px !important;
+  width: calc(100% - 32px) !important;
+}
+.flex.h-screen:has(video) .w-72 button.bg-red-500:hover {
+  transform: scale(1.02) !important;
+  background-color: #ef4444 !important;
+}
+
+/* Participant Badge (Name text) */
+.flex.h-screen:has(video) .w-72 p.text-sm.font-medium.text-gray-700 {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  color: var(--text-sidebar) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  margin-top: 150px !important; /* Push it down because local video is fixed */
+  margin-bottom: 24px !important;
+  position: relative !important;
+}
+.flex.h-screen:has(video) .w-72 p.text-sm.font-medium.text-gray-700::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--purple-accent, #8b5cf6);
+  margin-bottom: 12px;
+}
+.flex.h-screen:has(video) .w-72 p.text-sm.font-medium.text-gray-700::after {
+  content: "Teacher / Participant";
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Note error texts below name */
+.flex.h-screen:has(video) .w-72 p.text-amber-600 {
+  margin-inline: 16px !important;
+}
+
+/* Chat Section */
+.flex.h-screen:has(video) .w-72 .border-t.border-gray-200 {
+  border-top-color: #f0f0f0 !important;
+}
+.flex.h-screen:has(video) .w-72 .border-b.border-gray-100 {
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  color: var(--text-muted) !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+  background-color: var(--bg-sidebar) !important;
+  padding: 16px 20px !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.flex.h-screen:has(video) .w-72 .flex-1.space-y-2.overflow-y-auto {
+  background-color: #fafafa !important;
+  padding: 24px 20px !important;
+}
+
+.flex.h-screen:has(video) .w-72 .space-y-2 > div.text-sm {
+  background: white !important;
+  padding: 14px 16px !important;
+  border-radius: 16px !important;
+  border: 1px solid #f0f0f0 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02) !important;
+  margin-bottom: 16px !important;
+}
+.flex.h-screen:has(video) .w-72 .space-y-2 > div.text-sm .font-medium {
+  color: var(--text-sidebar) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+}
+.flex.h-screen:has(video) .w-72 .space-y-2 > div.text-sm .text-gray-600 {
+  color: #333 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  margin-top: 6px !important;
+}
+.flex.h-screen:has(video) .w-72 .space-y-2 > div.text-sm .text-xs.text-gray-400 {
+  margin-left: 8px !important;
+}
+
+/* Chat Input */
+.flex.h-screen:has(video) .w-72 > .flex.gap-2.border-t.p-3 {
+  background: white !important;
+  border-top: 1px solid #f0f0f0 !important;
+  padding: 20px !important;
+}
+
+.flex.h-screen:has(video) .w-72 input.border-gray-200 {
+  background: #f5f5f5 !important;
+  border: 1px solid transparent !important;
+  border-radius: 9999px !important;
+  padding: 12px 24px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  color: var(--text-sidebar) !important;
+  transition: all 200ms ease !important;
+}
+.flex.h-screen:has(video) .w-72 input.border-gray-200:focus {
+  border-color: #e5e5e5 !important;
+  background: white !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+  outline: none !important;
+}
+
+.flex.h-screen:has(video) .w-72 button.bg-gray-900.px-3.py-2 {
+  background-color: var(--accent-green) !important;
+  color: #000 !important;
+  border-radius: 9999px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 600 !important;
+  padding: 0 24px !important;
+  transition: transform 150ms ease !important;
+}
+.flex.h-screen:has(video) .w-72 button.bg-gray-900.px-3.py-2:hover {
+  transform: scale(1.05) !important;
+}
+
+/* Button disabled state styling */
+.flex.h-screen:has(video) button:disabled {
+  opacity: 0.6 !important;
+  transform: none !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+}

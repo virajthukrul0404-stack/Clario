@@ -1,0 +1,273 @@
+
+> clario@0.1.0 socket
+> tsx server/socket/index.ts
+
+{"ts":"2026-04-19T01:29:42.143Z","level":"info","message":"socket.server.started","port":4000}
+{"ts":"2026-04-19T01:36:20.765Z","level":"info","message":"socket.connected","socketId":"P99Y49TB7Dm9ze0mAAAC","connectionsCurrent":1}
+prisma:error 
+Invalid `db.message.findMany()` invocation in
+C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\server\socket\index.ts:299:41
+
+  296 try {
+  297   socket.join(roomIdentifier);
+  298   joinSessionRoom(roomIdentifier, socket.id, userId);
+→ 299   const messages = await db.message.findMany(
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+{"ts":"2026-04-19T01:37:47.288Z","level":"info","message":"socket.disconnected","socketId":"P99Y49TB7Dm9ze0mAAAC","connectionsCurrent":0}
+{"ts":"2026-04-19T01:42:41.376Z","level":"info","message":"socket.connected","socketId":"5ydig4FRyxxRKjUUAAAF","connectionsCurrent":1}
+prisma:error 
+Invalid `db.message.findMany()` invocation in
+C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\server\socket\index.ts:299:41
+
+  296 try {
+  297   socket.join(roomIdentifier);
+  298   joinSessionRoom(roomIdentifier, socket.id, userId);
+→ 299   const messages = await db.message.findMany(
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+{"ts":"2026-04-19T01:43:04.165Z","level":"info","message":"socket.connected","socketId":"ZdWNtJNMbyJllItcAAAI","connectionsCurrent":2}
+prisma:error 
+Invalid `db.message.findMany()` invocation in
+C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\server\socket\index.ts:299:41
+
+  296 try {
+  297   socket.join(roomIdentifier);
+  298   joinSessionRoom(roomIdentifier, socket.id, userId);
+→ 299   const messages = await db.message.findMany(
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+prisma:error 
+Invalid `db.session.findUnique()` invocation in
+C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\server\socket\index.ts:320:40
+
+  317 if (!roomIdentifier || !senderId || !content?.trim()) return;
+  318 
+  319 try {
+→ 320   const session = await db.session.findUnique(
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+prisma:error 
+Invalid `db.session.findUnique()` invocation in
+C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\server\socket\index.ts:320:40
+
+  317 if (!roomIdentifier || !senderId || !content?.trim()) return;
+  318 
+  319 try {
+→ 320   const session = await db.session.findUnique(
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+prisma:error 
+Invalid `db.session.findUnique()` invocation in
+C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\server\socket\index.ts:320:40
+
+  317 if (!roomIdentifier || !senderId || !content?.trim()) return;
+  318 
+  319 try {
+→ 320   const session = await db.session.findUnique(
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+prisma:error 
+Invalid `db.session.findUnique()` invocation in
+C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\server\socket\index.ts:320:40
+
+  317 if (!roomIdentifier || !senderId || !content?.trim()) return;
+  318 
+  319 try {
+→ 320   const session = await db.session.findUnique(
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+prisma:error 
+Invalid `db.session.findUnique()` invocation in
+C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\server\socket\index.ts:320:40
+
+  317 if (!roomIdentifier || !senderId || !content?.trim()) return;
+  318 
+  319 try {
+→ 320   const session = await db.session.findUnique(
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+prisma:error 
+Invalid `db.session.findUnique()` invocation in
+C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\server\socket\index.ts:320:40
+
+  317 if (!roomIdentifier || !senderId || !content?.trim()) return;
+  318 
+  319 try {
+→ 320   const session = await db.session.findUnique(
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+{"ts":"2026-04-19T01:44:57.772Z","level":"info","message":"socket.connected","socketId":"MBre-slQYG1_DnfqAAAL","connectionsCurrent":3}
+{"ts":"2026-04-19T01:44:57.775Z","level":"info","message":"socket.connected","socketId":"GSXr0NFDcouu4HuNAAAM","connectionsCurrent":4}
+prisma:error 
+Invalid `db.message.findMany()` invocation in
+C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\server\socket\index.ts:299:41
+
+  296 try {
+  297   socket.join(roomIdentifier);
+  298   joinSessionRoom(roomIdentifier, socket.id, userId);
+→ 299   const messages = await db.message.findMany(
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+prisma:error 
+Invalid `db.message.findMany()` invocation in
+C:\Users\viraj\OneDrive\Desktop\clario\Clario\Clario\server\socket\index.ts:299:41
+
+  296 try {
+  297   socket.join(roomIdentifier);
+  298   joinSessionRoom(roomIdentifier, socket.id, userId);
+→ 299   const messages = await db.message.findMany(
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+{"ts":"2026-04-19T01:45:05.776Z","level":"info","message":"socket.disconnected","socketId":"MBre-slQYG1_DnfqAAAL","connectionsCurrent":3}
+{"ts":"2026-04-19T01:45:05.782Z","level":"info","message":"socket.disconnected","socketId":"GSXr0NFDcouu4HuNAAAM","connectionsCurrent":2}
+{"ts":"2026-04-19T01:46:04.051Z","level":"info","message":"socket.connected","socketId":"DZUpfCWsrtZgguq7AAAP","connectionsCurrent":3}
+{"ts":"2026-04-19T01:46:04.055Z","level":"info","message":"socket.connected","socketId":"vJVjsNoxZxB4tT2DAAAQ","connectionsCurrent":4}
+prisma:error 
+Invalid `prisma.message.findMany()` invocation:
+
+
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+prisma:error 
+Invalid `prisma.message.findMany()` invocation:
+
+
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+{"ts":"2026-04-19T01:46:12.052Z","level":"info","message":"socket.disconnected","socketId":"DZUpfCWsrtZgguq7AAAP","connectionsCurrent":3}
+{"ts":"2026-04-19T01:46:12.052Z","level":"info","message":"socket.disconnected","socketId":"vJVjsNoxZxB4tT2DAAAQ","connectionsCurrent":2}
+{"ts":"2026-04-19T01:46:57.526Z","level":"info","message":"socket.connected","socketId":"HQthlK-oSQczuyjvAAAT","connectionsCurrent":3}
+{"ts":"2026-04-19T01:46:57.529Z","level":"info","message":"socket.connected","socketId":"zgttgV04_d3X8Gh0AAAU","connectionsCurrent":4}
+prisma:error 
+Invalid `prisma.message.findMany()` invocation:
+
+
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+prisma:error 
+Invalid `prisma.message.findMany()` invocation:
+
+
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+{"ts":"2026-04-19T01:47:05.531Z","level":"info","message":"socket.disconnected","socketId":"HQthlK-oSQczuyjvAAAT","connectionsCurrent":3}
+{"ts":"2026-04-19T01:47:05.533Z","level":"info","message":"socket.disconnected","socketId":"zgttgV04_d3X8Gh0AAAU","connectionsCurrent":2}
+{"ts":"2026-04-19T01:47:49.101Z","level":"info","message":"socket.connected","socketId":"NLBaqf1OU4_kjusBAAAX","connectionsCurrent":3}
+{"ts":"2026-04-19T01:47:49.101Z","level":"info","message":"socket.connected","socketId":"LV6Ulaub35bHU64nAAAY","connectionsCurrent":4}
+prisma:error 
+Invalid `prisma.message.findMany()` invocation:
+
+
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+prisma:error 
+Invalid `prisma.message.findMany()` invocation:
+
+
+error: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.
+  -->  schema.prisma:3
+   | 
+ 2 |   provider  = "postgresql"
+ 3 |   url       = env("DATABASE_URL")
+   | 
+
+Validation Error Count: 1
+{"ts":"2026-04-19T01:47:57.096Z","level":"info","message":"socket.disconnected","socketId":"NLBaqf1OU4_kjusBAAAX","connectionsCurrent":3}
+{"ts":"2026-04-19T01:47:57.099Z","level":"info","message":"socket.disconnected","socketId":"LV6Ulaub35bHU64nAAAY","connectionsCurrent":2}
